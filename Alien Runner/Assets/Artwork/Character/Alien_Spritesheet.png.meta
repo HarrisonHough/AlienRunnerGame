@@ -1,0 +1,128 @@
+fileFormatVersion: 2
+guid: 3dc38da2f19882a4285e562e16916297
+timeCreated: 1446614037
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Alien_0
+    21300002: Alien_1
+    21300004: Alien_2
+    21300006: Alien_3
+    21300008: Alien_4
+    21300010: Alien_5
+    21300012: Alien_Spritesheet_0
+    21300014: Alien_Spritesheet_1
+    21300016: Alien_Spritesheet_2
+    21300018: Alien_Spritesheet_3
+    21300020: Alien_Spritesheet_4
+    21300022: Alien_Spritesheet_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 1
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Alien_Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 92
+        width: 16
+        height: 29
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Alien_Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 92
+        width: 16
+        height: 29
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Alien_Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 92
+        width: 16
+        height: 29
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Alien_Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 56
+        width: 16
+        height: 29
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Alien_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 56
+        width: 16
+        height: 29
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Alien_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 56
+        width: 16
+        height: 29
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
