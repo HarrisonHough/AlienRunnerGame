@@ -9,26 +9,32 @@ using UnityEngine.SceneManagement;
 * SCRIPT: Menu Class
 */
 
-/// <summary>
-/// 
-/// </summary>
-public class Menu : MonoBehaviour {
-
-
-    public string levelToLoad;
-
+namespace AlienRunner
+{
     /// <summary>
     /// 
     /// </summary>
-    public void PlayGame() {
-        SceneManager.LoadScene(levelToLoad);
+    public class Menu : MonoBehaviour
+    {
 
-    }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    public void ShowScores() {
-        //show high scores leader board
+        public string levelToLoad;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void PlayGame()
+        {
+            SceneManager.LoadScene(levelToLoad);
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void ShowScores()
+        {
+            //show high scores leader board
+        }
     }
 }

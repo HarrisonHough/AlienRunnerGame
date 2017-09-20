@@ -2,15 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RecycleGameObject : MonoBehaviour , IRecyclable{
-
-    public void Restart()
+/*
+* AUTHOR: Harrison Hough   
+* COPYRIGHT: Harrison Hough 
+* VERSION: 1.0
+* SCRIPT: Recycle GameObject Class
+*/
+namespace AlienRunner
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public class RecycleGameObject : MonoBehaviour, IRecyclable
     {
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Restart()
+        {
 
-    }
+        }
 
-    public void Shutdown()
-    {
-        gameObject.SetActive(false);
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Shutdown()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

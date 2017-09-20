@@ -2,10 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IRecyclable
+/*
+* AUTHOR: Harrison Hough   
+* COPYRIGHT: Harrison Hough 
+* VERSION: 1.0
+* SCRIPT: IRecycle Interface
+*/
+
+namespace AlienRunner
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    public interface IRecyclable
+    {
 
-    void Shutdown();
+        void Shutdown();
 
-    void Restart();
+        void Restart();
+    }
 }

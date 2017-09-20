@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\PlayerOffscreenCheck.cs" />
     <Compile Include="Assets\Scripts\RecycleGameObject.cs" />
     <Compile Include="Assets\Scripts\RecycleOnCollision.cs" />
+    <Compile Include="Assets\Scripts\ScreenOrientation.cs" />
     <Compile Include="Assets\Scripts\Spawner.cs" />
     <Compile Include="Assets\Scripts\TiledBackground.cs" />
     <Compile Include="Assets\Scripts\TimeManager.cs" />

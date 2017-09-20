@@ -8,40 +8,47 @@ using System.Collections;
 * SCRIPT: Player Animation Manager Class
 */
 
-/// <summary>
-/// 
-/// </summary>
-public class PlayerAnimationManager : MonoBehaviour {
-
-    private Animator animator;
-    private InputState inputState;
+namespace AlienRunner
+{
 
     /// <summary>
     /// 
     /// </summary>
-    private void Awake() {
-        animator = GetComponent<Animator>();
-        inputState = GetComponent<InputState>();
-    }
-
-    /// <summary>
-    /// Update is called once per frame
-    /// </summary>
-    private void Update () {
-        CheckForRunning();
-	
-	}
-
-    /// <summary>
-    /// 
-    /// </summary>
-    private void CheckForRunning()
+    public class PlayerAnimationManager : MonoBehaviour
     {
-        var running = true;
 
-        if (inputState.absVelX > 0 && inputState.absVelY < inputState.standingThreshold)
-            running = false;
+        private Animator animator;
+        private InputState inputState;
 
-        animator.SetBool("Running", running);
+        /// <summary>
+        /// 
+        /// </summary>
+        private void Awake()
+        {
+            animator = GetComponent<Animator>();
+            inputState = GetComponent<InputState>();
+        }
+
+        /// <summary>
+        /// Update is called once per frame
+        /// </summary>
+        private void Update()
+        {
+            CheckForRunning();
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void CheckForRunning()
+        {
+            var running = true;
+
+            if (inputState.absVelX > 0 && inputState.absVelY < inputState.standingThreshold)
+                running = false;
+
+            animator.SetBool("Running", running);
+        }
     }
 }

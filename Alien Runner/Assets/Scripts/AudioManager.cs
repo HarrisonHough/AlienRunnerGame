@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+/*
+* AUTHOR: Harrison Hough   
+* COPYRIGHT: Harrison Hough 
+* VERSION: 1.0
+* SCRIPT: Audio Manager Class
+*/
+
 namespace AlienRunner
 {
     [System.Serializable]
@@ -15,33 +22,43 @@ namespace AlienRunner
 
     public class AudioManager : MonoBehaviour
     {
-        //public variables assigned in scene
-        public AudioMixer mixer;
-        public AudioSource musicAudio;
-        public AudioSource SFXAudio;
-        
-        public AudioClip playerJump;
-        public AudioClip UIClick;
-        public AudioClip gameOverWin;
-        public AudioClip gameOverLose;
-        public AudioClip menuMusic;
 
+        [SerializeField]
         public GameMusicLoops[] gameMusicArray;
-        public float[] loopLengths;
 
+        //public variables assigned in scene
+        [SerializeField]
+        private AudioMixer _mixer;
+        [SerializeField]
+        private AudioSource _musicAudio;
+        [SerializeField]
+        private AudioSource _SFXAudio;
+        
+        [SerializeField]
+        private AudioClip _playerJump;
+        [SerializeField]
+        private AudioClip _UIClick;
+        [SerializeField]
+        private AudioClip _gameOverWin;
+        [SerializeField]
+        private AudioClip _gameOverLose;
+        [SerializeField]
+        private AudioClip _menuMusic;        
 
+        private float[] _loopLengths;
         private int _loopIndex;
         private bool _playMusicLoop;
         private bool _playerKilled = false;
+        private float _timer = 0;
 
-        float timer = 0;
-        // Use this for initialization
-
+        /// <summary>
+        /// Use this for initialization
+        /// </summary>
         void Start()
         {
-            loopLengths = new float[gameMusicArray.Length];
-            for (int i = 0; i < loopLengths.Length; i++)
-                loopLengths[i] = gameMusicArray[i].gameMusic.length * gameMusicArray[i].musicLoops;
+            _loopLengths = new float[gameMusicArray.Length];
+            for (int i = 0; i < _loopLengths.Length; i++)
+                _loopLengths[i] = gameMusicArray[i].gameMusic.length * gameMusicArray[i].musicLoops;
         }
 
         /// <summary>
@@ -50,19 +67,23 @@ namespace AlienRunner
         public void StartGame()
         {
             _playMusicLoop = true;
-            timer = 0;
+            _timer = 0;
             _loopIndex = 0;
-            musicAudio.clip = gameMusicArray[_loopIndex].gameMusic;
+            _musicAudio.clip = gameMusicArray[_loopIndex].gameMusic;
             //musicAudio.Play();
             StartCoroutine(PlayMusicLoop());
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         IEnumerator PlayMusicLoop()
         {
             _playMusicLoop = true;
 
             _loopIndex = 0;
-            musicAudio.loop = true;
+            _musicAudio.loop = true;
             float time = 0;
             PlayNewClip();
             while (_playMusicLoop)
@@ -85,41 +106,15 @@ namespace AlienRunner
             }
         }
 
-        private float GetMusicLoopLength(int index)
-        {
-            return gameMusicArray[_loopIndex].gameMusic.length * gameMusicArray[_loopIndex].musicLoops;
-        }
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="index"></param>
         /// <returns></returns>
-        /*IEnumerator PlayMusicLoop2()
+        private float GetMusicLoopLength(int index)
         {
-            _playMusicLoop = true;
-
-            int _loopIndex = 0;
-            musicAudio.loop = true;
-            while (_loopIndex < gameMusicArray.Length)
-            {
-                PlayNewClip(_loopIndex);
-                yield return new WaitForSeconds(gameMusicArray[_loopIndex].gameMusic.length * gameMusicArray[_loopIndex].musicLoops);
-
-                if (_playerKilled)
-                {
-                    _loopIndex = gameMusicArray.Length;
-                    _playerKilled = false;
-                    yield return null;
-                }
-
-                //increment loop index
-                _loopIndex++;
-                Debug.Log("Play next sound loop");
-                //increase speed
-                GameManager.instance.IncreaseGameSpeed();
-                //GameManager.gameSpeedMultiplier += GameManager.instance.speedIncreaseAmount;
-                Debug.Log("Increase game speed Multiplier to " + GameManager.gameSpeedMultiplier);
-            }
-        }*/
+            return gameMusicArray[_loopIndex].gameMusic.length * gameMusicArray[_loopIndex].musicLoops;
+        }        
 
         /// <summary>
         /// 
@@ -127,8 +122,8 @@ namespace AlienRunner
         /// <param name="loopIndex"></param>
         private void PlayNewClip()
         {
-            musicAudio.clip = gameMusicArray[_loopIndex].gameMusic;
-            musicAudio.Play();
+            _musicAudio.clip = gameMusicArray[_loopIndex].gameMusic;
+            _musicAudio.Play();
             Debug.Log("playing music loop #" + _loopIndex + " waiting for" + gameMusicArray[_loopIndex].gameMusic.length * gameMusicArray[_loopIndex].musicLoops + " seconds");
         }
 
@@ -140,7 +135,7 @@ namespace AlienRunner
             if (_playMusicLoop)
             {
                 _playMusicLoop = false;                
-                musicAudio.Stop();
+                _musicAudio.Stop();
                 Debug.Log("Game Over Stopping music loop");                
                 GameManager.instance.ResetGameSpeed();
                 StopCoroutine(PlayMusicLoop());
@@ -153,8 +148,8 @@ namespace AlienRunner
         /// </summary>
         public void PlayJumpSound()
         {
-            if (playerJump != null)
-                SFXAudio.PlayOneShot(playerJump);
+            if (_playerJump != null)
+                _SFXAudio.PlayOneShot(_playerJump);
         }
 
         /// <summary>
@@ -162,8 +157,8 @@ namespace AlienRunner
         /// </summary>
         public void PlayWinSound()
         {
-            if (gameOverWin != null)
-                SFXAudio.PlayOneShot(gameOverWin);
+            if (_gameOverWin != null)
+                _SFXAudio.PlayOneShot(_gameOverWin);
         }
 
         /// <summary>
@@ -171,8 +166,8 @@ namespace AlienRunner
         /// </summary>
         public void PlayLoseSound()
         {
-            if (gameOverLose != null)
-                SFXAudio.PlayOneShot(gameOverLose);
+            if (_gameOverLose != null)
+                _SFXAudio.PlayOneShot(_gameOverLose);
         }
 
         /// <summary>
@@ -180,8 +175,8 @@ namespace AlienRunner
         /// </summary>
         public void PlayClickSound()
         {
-            if (UIClick != null)
-                SFXAudio.PlayOneShot(UIClick);
+            if (_UIClick != null)
+                _SFXAudio.PlayOneShot(_UIClick);
         }
 
         /// <summary>
@@ -189,40 +184,54 @@ namespace AlienRunner
         /// </summary>
         public void PlayMenuMusic()
         {
-            if (menuMusic != null)
+            if (_menuMusic != null)
             {
-                musicAudio.clip = menuMusic;
-                musicAudio.Play();
+                _musicAudio.clip = _menuMusic;
+                _musicAudio.Play();
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
         public void SetMusicVolume(float value)
         {
             //TODO convert from normalized value ( EG 0 - 1)
-            mixer.SetFloat("musicVol", value.Remap(0, 1, -40, 0));
+            _mixer.SetFloat("musicVol", value.Remap(0, 1, -40, 0));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
         public void SetSFXVolume(float value)
-        {
-            
+        {            
             //TODO convert From normalized value ( EG 0 - 1)
-            mixer.SetFloat("SFXVol", value.Remap(0, 1, -40, 0));
+            _mixer.SetFloat("SFXVol", value.Remap(0, 1, -40, 0));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public float GetMusicVolume()
         {
             float volume;
-            mixer.GetFloat("musicVol", out volume);
-
+            _mixer.GetFloat("musicVol", out volume);
 
             //TODO convert to normalized value ( EG 0 - 1)
             return volume.Remap(-40, 0, 0, 1);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public float GetSFXVolume()
         {
             float volume;
-            mixer.GetFloat("SFXVol", out volume);
+            _mixer.GetFloat("SFXVol", out volume);
 
             //TODO convert to normalized value ( EG 0 - 1)
             return volume.Remap(-40,0, 0,1);

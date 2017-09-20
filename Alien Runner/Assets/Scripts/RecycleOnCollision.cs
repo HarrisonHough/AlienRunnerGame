@@ -8,23 +8,34 @@ using System.Collections;
 * SCRIPT: Recycle Off Screen Class
 */
 
-/// <summary>
-/// 
-/// </summary>
-public class RecycleOnCollision : MonoBehaviour {
-
-    IRecyclable recycle;
-
-    private void Start()
+namespace AlienRunner
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public class RecycleOnCollision : MonoBehaviour
     {
-        recycle = GetComponent<IRecyclable>();    
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Destroy")
-        {            
+        IRecyclable recycle;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void Start()
+        {
+            recycle = GetComponent<IRecyclable>();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="collision"></param>
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.tag == "Destroy")
+            {
                 recycle.Shutdown();
+            }
         }
     }
 }

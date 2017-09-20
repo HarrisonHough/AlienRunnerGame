@@ -9,32 +9,46 @@ using System.Collections;
 * SCRIPT: Pixel Perfect Camera Class
 */
 
-/// <summary>
-/// 
-/// </summary>
-public class PixelPerfectCamera : MonoBehaviour {
-
-    public static float pixelToUnits = 1f;
-    public static float scale = 1f;
-
-    public Vector2 nativeResolution = new Vector2(480, 320);
-
+namespace AlienRunner
+{
     /// <summary>
     /// 
     /// </summary>
-    void Awake()
+    public class PixelPerfectCamera : MonoBehaviour
     {
-        var camera = GetComponent<Camera>();
 
-        if (camera.orthographic)
+        public static float pixelToUnits = 1f;
+        public static float scale = 1f;
+
+        [SerializeField]
+        private Vector2 nativeResolution = new Vector2(480, 320);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        void Awake()
         {
-            scale = Screen.height / nativeResolution.y;
-            pixelToUnits = 1 * scale;
-            camera.orthographicSize = (Screen.height / 2.0f) / pixelToUnits;
-            Debug.Log("Scale = " + scale);
-            Debug.Log("Pixel to units = " + pixelToUnits);
-            Debug.Log("Screen height = " + Screen.height);
-            Debug.Log("Camera orth size = " +  camera.orthographicSize);
+            SetResolution();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void SetResolution()
+        {
+            var camera = GetComponent<Camera>();
+
+            if (camera.orthographic)
+            {
+                scale = Screen.height / nativeResolution.y;
+                pixelToUnits = 1 * scale;
+                camera.orthographicSize = (Screen.height / 2.0f) / pixelToUnits;
+
+                //Debug.Log("Scale = " + scale);
+                //Debug.Log("Pixel to units = " + pixelToUnits);
+                //Debug.Log("Screen height = " + Screen.height);
+                //Debug.Log("Camera orth size = " + camera.orthographicSize);
+            }
         }
     }
 }

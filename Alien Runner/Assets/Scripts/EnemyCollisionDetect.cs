@@ -9,7 +9,6 @@ using UnityEngine;
 * SCRIPT: Enemy Collision Detect Class
 */
 
-
 namespace AlienRunner
 {
     /// <summary>
@@ -29,7 +28,7 @@ namespace AlienRunner
             {
                 GameManager.instance.OnPlayerKilled();
 
-                //TODO 
+                //TODO  
                 //GameObjectUtil.Destroy(gameObject);
                 //Debug.Log("Collided with enemy");
 

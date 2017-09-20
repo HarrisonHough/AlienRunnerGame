@@ -15,8 +15,8 @@ namespace AlienRunner
     /// </summary>
     public class PlayerOffscreenCheck : MonoBehaviour
     {
-
-        public float offset = 16f;
+        [SerializeField]
+        private float offset = 16f;
 
         private bool _offscreen;
         private float _offsceenX = 0;
@@ -45,7 +45,6 @@ namespace AlienRunner
         /// </summary>
         void Update()
         {
-
             CheckForOffScreen();
         }
 

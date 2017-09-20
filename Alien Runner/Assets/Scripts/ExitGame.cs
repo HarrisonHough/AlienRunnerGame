@@ -8,18 +8,24 @@ using System.Collections;
 * SCRIPT: Exit Game Class
 */
 
-/// <summary>
-/// 
-/// </summary>
-public class ExitGame : MonoBehaviour {
-
+namespace AlienRunner
+{
     /// <summary>
-    /// Update is called once per frame
+    /// 
     /// </summary>
-    void Update () {
+    public class ExitGame : MonoBehaviour
+    {
 
-        if (Input.GetKey("escape")) {
-            Application.Quit();
-        }	
-	}
+        /// <summary>
+        /// Update is called once per frame
+        /// </summary>
+        void Update()
+        {
+
+            if (Input.GetKey("escape"))
+            {
+                Application.Quit();
+            }
+        }
+    }
 }

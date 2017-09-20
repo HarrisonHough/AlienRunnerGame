@@ -15,21 +15,27 @@ namespace AlienRunner
     /// </summary>
     public class Spawner : MonoBehaviour
     {
-
-        public GameObject[] prefabs;
-        private GameObject[] obstacles;
-        private IRecyclable[] recyclables;
-        private GameObject obstacleParent;
         [SerializeField]
-        private Transform spawnPoint;
+        private GameObject[] _prefabs;
+        [SerializeField]
+        private GameObject[] _obstacles;
+        private IRecyclable[] _recyclables;
+        private GameObject _obstacleParent;
+        [SerializeField]
+        private Transform _spawnPoint;
 
-        public float delay = 2;
-        public bool active = true;
-        public Vector2 delayRange = new Vector2(1, 2);
+        [SerializeField]
+        private float _delay = 2;
+        [SerializeField]
+        private bool _active = true;
+        public bool active { get { return _active; } set { _active = value; } }
+        [SerializeField]
+        private Vector2 _delayRange = new Vector2(1, 2);
+
         // Use this for initialization
         void Start()
         {
-            obstacleParent = new GameObject("Obstacles");
+            _obstacleParent = new GameObject("Obstacles");
             CreateObstacles();
             ResetDelay();
             StartCoroutine(EnemyGeneratoLoop());
@@ -37,42 +43,42 @@ namespace AlienRunner
 
         private void ResetDelay()
         {
-            delay = Random.Range(delayRange.x, delayRange.y);
+            _delay = Random.Range(_delayRange.x, _delayRange.y);
         }
 
         void CreateObstacles()
         {
-            recyclables = new IRecyclable[prefabs.Length];
-            obstacles = new GameObject[prefabs.Length];
+            _recyclables = new IRecyclable[_prefabs.Length];
+            _obstacles = new GameObject[_prefabs.Length];
 
-            for (int i = 0; i < obstacles.Length; i++)
+            for (int i = 0; i < _obstacles.Length; i++)
             {
-                obstacles[i] = Instantiate(prefabs[i], obstacleParent.transform);
-                recyclables[i] = obstacles[i].GetComponent<IRecyclable>();
-                recyclables[i].Shutdown();
+                _obstacles[i] = Instantiate(_prefabs[i], _obstacleParent.transform);
+                _recyclables[i] = _obstacles[i].GetComponent<IRecyclable>();
+                _recyclables[i].Shutdown();
             }
         }
 
         void SpawnObstacle(int index)
         {
-            obstacles[index].transform.position = spawnPoint.position;
-            obstacles[index].SetActive(true);
-            recyclables[index].Restart();
+            _obstacles[index].transform.position = _spawnPoint.position;
+            _obstacles[index].SetActive(true);
+            _recyclables[index].Restart();
         }
 
         public void DisableAllObstacles()
         {
-            for (int i = 0; i < obstacles.Length; i++)
+            for (int i = 0; i < _obstacles.Length; i++)
             {
-                recyclables[i].Shutdown();
-                obstacles[i].SetActive(false);
+                _recyclables[i].Shutdown();
+                _obstacles[i].SetActive(false);
             }
         }
 
         IEnumerator EnemyGeneratoLoop()
         {
-            yield return new WaitForSeconds(delay);
-            if (active)
+            yield return new WaitForSeconds(_delay);
+            if (_active)
             {
                 var newTransform = transform;
                 SpawnObstacle(GetAvailablePrefab());
@@ -82,10 +88,10 @@ namespace AlienRunner
 
         private int GetAvailablePrefab()
         {
-            int index = Random.Range(0, obstacles.Length);
-            while (obstacles[index].activeSelf)
+            int index = Random.Range(0, _obstacles.Length);
+            while (_obstacles[index].activeSelf)
             {
-                index = Random.Range(0, obstacles.Length);
+                index = Random.Range(0, _obstacles.Length);
             }
             return index;
         }

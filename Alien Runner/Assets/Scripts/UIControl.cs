@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 /*
 * AUTHOR: Harrison Hough   
 * COPYRIGHT: Harrison Hough 
@@ -15,75 +16,96 @@ namespace AlienRunner
     /// </summary>
     public class UIControl : MonoBehaviour
     {
-        public GameObject settingsPanel;
-        public GameObject menuPanel;
+        [SerializeField]
+        private GameObject _settingsPanel;
+        [SerializeField]
+        private GameObject _menuPanel;
 
         [SerializeField]
-        private Slider SFXSlider;
+        private Slider _SFXSlider;
         [SerializeField]
-        private Slider musicSlider;
+        private Slider _musicSlider;
         [SerializeField]
-        private Text speedText;
-        private int speedValue = 1;
+        private Text _speedText;
+        private int _speedValue = 1;
 
-        private GameObject[] settingsElements;
-        private GameObject[] menuElements;
-        private AudioManager audio;
-        private Tutorial tutorial;
+        private GameObject[] _settingsElements;
+        private GameObject[] _menuElements;
+        private AudioManager _audio;
+        private Tutorial _tutorial;
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void Awake()
         {
-            audio = FindObjectOfType<AudioManager>();
-            tutorial = GetComponent<Tutorial>();
+            _audio = FindObjectOfType<AudioManager>();
+            _tutorial = GetComponent<Tutorial>();
             ResetSpeedText();
         }
 
-        // Use this for initialization
+        /// <summary>
+        /// Use this for initialization
+        /// </summary>
         void Start()
         {
             InitializeElements();
             SetSettingsPanelVisibility(false);
 
-            SFXSlider.onValueChanged.AddListener(delegate { AdjustSFXSlider(); });
-            musicSlider.onValueChanged.AddListener(delegate { AdjustMusicSlider(); });
+            _SFXSlider.onValueChanged.AddListener(delegate { AdjustSFXSlider(); });
+            _musicSlider.onValueChanged.AddListener(delegate { AdjustMusicSlider(); });
             
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void InitializeElements()
         {
-            settingsElements = new GameObject[settingsPanel.transform.childCount];
+            _settingsElements = new GameObject[_settingsPanel.transform.childCount];
 
-            for (int i = 0; i < settingsElements.Length; i++)
+            for (int i = 0; i < _settingsElements.Length; i++)
             {
-                settingsElements[i] = settingsPanel.transform.GetChild(i).gameObject;
+                _settingsElements[i] = _settingsPanel.transform.GetChild(i).gameObject;
             }
 
-            menuElements = new GameObject[menuPanel.transform.childCount];
+            _menuElements = new GameObject[_menuPanel.transform.childCount];
 
-            for (int i = 0; i < menuElements.Length; i++)
+            for (int i = 0; i < _menuElements.Length; i++)
             {
-                menuElements[i] = menuPanel.transform.GetChild(i).gameObject;
+                _menuElements[i] = _menuPanel.transform.GetChild(i).gameObject;
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="isVisible"></param>
         public void SetSettingsPanelVisibility(bool isVisible)
         {
-            for (int i = 0; i < settingsElements.Length; i++)
+            for (int i = 0; i < _settingsElements.Length; i++)
             {
-                settingsElements[i].SetActive(isVisible);
+                _settingsElements[i].SetActive(isVisible);
             }
             UpdateSoundSliders();
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="isVisible"></param>
         public void SetMenusPanelVisibility(bool isVisible)
         {
-            for (int i = 0; i < menuElements.Length; i++)
+            for (int i = 0; i < _menuElements.Length; i++)
             {
-                menuElements[i].SetActive(isVisible);
+                _menuElements[i].SetActive(isVisible);
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void PlayGame() {
 
             if (GameManager.instance.HideHelp)
@@ -91,50 +113,71 @@ namespace AlienRunner
                 GameManager.instance.PlayGame();
             }
             else {
-                tutorial.StartTutorial();
-                Debug.Log("Setting " + menuPanel.name +  " to false");
-                menuPanel.SetActive(false);
+                _tutorial.StartTutorial();
+                Debug.Log("Setting " + _menuPanel.name +  " to false");
+                _menuPanel.SetActive(false);
                 GameManager.instance.CheckGameSettings();
             }
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void ExitGame()
         {
             // TODO add exit game logic
             //SceneManager.LoadScene(0);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void UpdateSoundSliders()
         {
-            SFXSlider.value = audio.GetSFXVolume();
-            musicSlider.value = audio.GetMusicVolume();
+            _SFXSlider.value = _audio.GetSFXVolume();
+            _musicSlider.value = _audio.GetMusicVolume();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void AdjustSFXSlider()
         {
-            audio.SetSFXVolume(SFXSlider.value);
+            _audio.SetSFXVolume(_SFXSlider.value);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void AdjustMusicSlider()
         {
-            audio.SetMusicVolume(musicSlider.value);
+            _audio.SetMusicVolume(_musicSlider.value);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void IncreaseSpeedText() {
 
-            speedValue++;
+            _speedValue++;
             UpdateSpeedText();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void UpdateSpeedText() {
             
-            speedText.text = "SPEED\nX " + speedValue;
+            _speedText.text = "SPEED\nX " + _speedValue;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void ResetSpeedText() {
 
-            speedValue = 1;
+            _speedValue = 1;
             UpdateSpeedText();
         }
     }
