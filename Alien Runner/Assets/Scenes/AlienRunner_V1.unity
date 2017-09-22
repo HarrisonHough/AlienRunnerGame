@@ -553,14 +553,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6db7378f1979654da889611530e6aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: f37bd8dcd253ce64ea5b5501c03959ac, type: 2}
-  musicAudio: {fileID: 1102045862}
-  SFXAudio: {fileID: 1065992678}
-  playerJump: {fileID: 8300000, guid: 2255bcb5d5d404cc6b23c0b004c9862d, type: 3}
-  UIClick: {fileID: 8300000, guid: 7e2fb91f23a194659a98fdf86ff13ca9, type: 3}
-  gameOverWin: {fileID: 8300000, guid: 6dcd67b4858a9475baa3eb79247a716a, type: 3}
-  gameOverLose: {fileID: 8300000, guid: c6255b63e16b44e109dcebe3bd04cb5a, type: 3}
-  menuMusic: {fileID: 8300000, guid: e4c7d2348d963474fae3060a54d30fbc, type: 3}
   gameMusicArray:
   - gameMusic: {fileID: 8300000, guid: af4381c2aabde45b9b53f2e093dd81a6, type: 3}
     musicLoops: 1
@@ -572,7 +564,14 @@ MonoBehaviour:
     musicLoops: 1
   - gameMusic: {fileID: 8300000, guid: 43c87f9ef7bca4e9b8700f59d195ddbe, type: 3}
     musicLoops: 1
-  loopLengths: []
+  _mixer: {fileID: 24100000, guid: f37bd8dcd253ce64ea5b5501c03959ac, type: 2}
+  _musicAudio: {fileID: 1102045862}
+  _SFXAudio: {fileID: 1065992678}
+  _playerJump: {fileID: 8300000, guid: 2255bcb5d5d404cc6b23c0b004c9862d, type: 3}
+  _UIClick: {fileID: 8300000, guid: 7e2fb91f23a194659a98fdf86ff13ca9, type: 3}
+  _gameOverWin: {fileID: 8300000, guid: 6dcd67b4858a9475baa3eb79247a716a, type: 3}
+  _gameOverLose: {fileID: 8300000, guid: c6255b63e16b44e109dcebe3bd04cb5a, type: 3}
+  _menuMusic: {fileID: 8300000, guid: e4c7d2348d963474fae3060a54d30fbc, type: 3}
 --- !u!1 &125807651
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,9 +1010,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff4019271e0d2447a84fbd261803d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textureSize: 64
-  scaleHorizontally: 1
-  scaleVertically: 1
+  _textureSize: 32
+  _scaleHorizontally: 1
+  _scaleVertically: 1
 --- !u!23 &259082489
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3864,10 +3863,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1111096882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14fd27963fc1af6458e0a47dbe2bbf12, type: 3}
+  m_Script: {fileID: 11500000, guid: be1808073bd0f5a4894f126fd55de029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenOrientation: 2
+  screenOrientation: 0
 --- !u!4 &1111096884
 Transform:
   m_ObjectHideFlags: 0
@@ -5751,11 +5750,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac5648c3ee15c4841a76003754ab7bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsPanel: {fileID: 1325303029}
-  menuPanel: {fileID: 1103497140}
-  SFXSlider: {fileID: 1374367138}
-  musicSlider: {fileID: 990002784}
-  speedText: {fileID: 1020465017}
+  _settingsPanel: {fileID: 1325303029}
+  _menuPanel: {fileID: 1103497140}
+  _SFXSlider: {fileID: 1374367138}
+  _musicSlider: {fileID: 990002784}
+  _speedText: {fileID: 1020465017}
 --- !u!114 &1818551365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5871,9 +5870,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff4019271e0d2447a84fbd261803d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textureSize: 64
-  scaleHorizontally: 1
-  scaleVertically: 0
+  _textureSize: 32
+  _scaleHorizontally: 1
+  _scaleVertically: 1
 --- !u!114 &1852706185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6351,22 +6350,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0385eb1d626ceac4892d846ed4e1f628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: 186824, guid: 6c3b71556c4bc754997240f03b72af89, type: 2}
-  - {fileID: 127766, guid: 274fdd3427e024e4984633e6748cfcbe, type: 2}
-  - {fileID: 127766, guid: 274fdd3427e024e4984633e6748cfcbe, type: 2}
-  - {fileID: 127766, guid: 274fdd3427e024e4984633e6748cfcbe, type: 2}
-  - {fileID: 163768, guid: 2f9a04b2e1f78294e92f0a0102ee868d, type: 2}
-  - {fileID: 186824, guid: 6c3b71556c4bc754997240f03b72af89, type: 2}
-  - {fileID: 186824, guid: 6c3b71556c4bc754997240f03b72af89, type: 2}
-  - {fileID: 186824, guid: 6c3b71556c4bc754997240f03b72af89, type: 2}
-  - {fileID: 127766, guid: 274fdd3427e024e4984633e6748cfcbe, type: 2}
-  - {fileID: 186824, guid: 6c3b71556c4bc754997240f03b72af89, type: 2}
-  - {fileID: 127766, guid: 274fdd3427e024e4984633e6748cfcbe, type: 2}
-  spawnPoint: {fileID: 1968267333}
-  delay: 2
-  active: 1
-  delayRange: {x: 1, y: 2}
+  _prefabs: []
+  _obstacles: []
+  _spawnPoint: {fileID: 0}
+  _delay: 2
+  _active: 1
+  _delayRange: {x: 1, y: 2}
 --- !u!4 &1968267333
 Transform:
   m_ObjectHideFlags: 0
