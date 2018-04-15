@@ -1,5 +1,5 @@
 2017.1.1f1:3.3.0.2
-StandaloneWindows64
+Android
 F:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll
 F:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll
 F:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
@@ -9,3 +9,5 @@ F:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-
 F:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll
 F:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll
 F:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll
+F:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll
+F:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll

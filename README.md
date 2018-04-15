@@ -1,3 +1,5 @@
+![Featured Screenshot: Asteroids](http://harrisonhough.com/wp-content/uploads/2017/08/AlienRunner.png)
+
 # Alien Runner Game
 A simple 2D runner game made in Unity
 
