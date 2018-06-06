@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
+# Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alien Runner", "Alien Runner.csproj", "{F27CA2B2-5BE5-DD5E-50E4-779FD89F3426}"
 EndProject
 Global
