@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/*
+* AUTHOR: Harrison Hough   
+* COPYRIGHT: Harrison Hough 2018
+* VERSION: 1.0
+* SCRIPT: Utilities Class
+*/
+
+
 public class Utilities : MonoBehaviour{
 
     public static void SlerpTransform(Transform objectToLerp, Transform start, Transform target, float fracJourney)
